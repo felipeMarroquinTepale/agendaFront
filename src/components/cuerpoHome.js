@@ -1,32 +1,44 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
+import Grid from '@mui/material/Grid';
+import home from '../assets/img/hom.jpg';
 import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
 
 
-export default function MediaControlCard() {
-
-
+export default function cuerpoHome() {
   return (
-    <Card sx={{ display: 'flex' }}>
-      <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-        <CardContent sx={{ flex: '1 0 auto' }}>
-          <Typography component="div" variant="h5">
-            Live From Space
-          </Typography>
-          <Typography variant="subtitle1" color="text.secondary" component="div">
-            Mac Miller
-          </Typography>
-        </CardContent>
+    <Box>
+      <Grid container spacing={6} >
+        <Grid item xs={12} md={6} >
+          <Typography variant="h3" fontWeight={600}  sx={{mt:20,mx:5}}>
+          Agenda y lleve un control de todas sus
 
-      </Box>
-      <CardMedia
-        component="img"
-        sx={{ width: 151 }}
-        alt="Live from space album cover"
-      />
-    </Card>
+          </Typography>
+          <Typography variant="h3" fontWeight={600}  sx={{mx:5}}>
+          actividades
+          </Typography>
+          <Typography variant="h6"  sx={{mt:5,mx:5}}>
+          Aqui podras dar seguimiento a tus actividades
+          del dia a dia.
+          </Typography>
+          <Typography variant="h6"  sx={{mx:5}}>
+          ¿Que esperas?
+          </Typography>
+          <Box textAlign='center' sx={{witdt:'100%',height:'10%',mt:15}}>
+            <Button
+              variant="contained"
+              sx={{ width: '440px',height:50,fontSize: '16px',backgroundColor:'#0E9AB1'}}
+            >
+              Empezar ahora
+            </Button>
+          </Box>
+
+        </Grid>
+        <Grid item xs={12} md={5}>
+          <img src={home} width="104%" alt="My Team"  />
+        </Grid>
+      </Grid>
+    </Box>
   );
 }
