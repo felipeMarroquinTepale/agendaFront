@@ -1,14 +1,15 @@
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "../pages/home";
+import HomeSinUser from "../pages/homeSinUser";
+import HomeConUser from "../pages/homeConUser";
 
 
 export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route exact path='/' element={<Home/>}/>
-        <Route exact path="/Home" element={<Home/>}/>
+        <Route exact path="/" element={<HomeSinUser/>}/>
+        <Route exact path="/Home" element={<HomeConUser/>}/>
       </Routes>
     </BrowserRouter>
   );

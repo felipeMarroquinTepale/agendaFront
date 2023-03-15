@@ -20,7 +20,7 @@ import {NavLink} from "react-router-dom";
 const drawerWidth = 240;
 const navItems = ['Home', 'Iniciar sesion', 'Registrarse'];
 
-function Navbar(props) {
+function NavbarConUser(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -81,10 +81,10 @@ function Navbar(props) {
                 <NavLink  activeStyle={{fontWeight:"bold",color:"#0E9AB1"}} style={{marginRight:"0px",color:"black", textDecoration: 'none'}} to="/Home">HOME</NavLink>
             </li>
             <li className="nav-item">
-                <NavLink  activeStyle={{fontWeight:"bold",color:"#0E9AB1"}} style={{marginLeft:"45px",color:"black", textDecoration: 'none'}} to="/">INICIO SESION</NavLink>
+                <NavLink  activeStyle={{fontWeight:"bold",color:"#0E9AB1"}} style={{marginLeft:"45px",color:"black", textDecoration: 'none'}} to="/">DIRECTORIO</NavLink>
             </li>
             <li className="nav-item">
-                <NavLink  activeStyle={{fontWeight:"bold",color:"#0E9AB1"}} style={{marginLeft:"45px",color:"black", textDecoration: 'none'}} to="/H">RESGISTRARSE</NavLink>
+                <NavLink  activeStyle={{fontWeight:"bold",color:"#0E9AB1"}} style={{marginLeft:"45px",color:"black", textDecoration: 'none'}} to="/H">AGENDA</NavLink>
             </li>
           </ul>
 
@@ -118,7 +118,7 @@ function Navbar(props) {
   );
 }
 
-Navbar.propTypes = {
+NavbarConUser.propTypes = {
   /**
    * Injected by the documentation to work in an iframe.
    * You won't need it on your project.
@@ -126,5 +126,5 @@ Navbar.propTypes = {
   window: PropTypes.func,
 };
 
-export default Navbar;
+export default NavbarConUser;
 

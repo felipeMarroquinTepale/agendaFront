@@ -1,8 +1,8 @@
-import Navbar from "../components/Navbar"
+import Navbar from "../components/NavbarConUser"
 import Cuerpo from "../components/cuerpoHome"
 
 
-function home() {
+function homeConUser() {
     return(
         <>
         <Navbar/>
@@ -11,4 +11,4 @@ function home() {
     )
   }
 
-  export default home;
+  export default homeConUser;
