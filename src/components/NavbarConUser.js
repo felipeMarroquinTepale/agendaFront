@@ -14,13 +14,24 @@ import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-
 import {NavLink} from "react-router-dom";
+import Button from '@mui/material/Button';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import Fade from '@mui/material/Fade';
+import PermIdentityIcon from '@mui/icons-material/PermIdentity';
+import { useNavigate } from "react-router-dom";
+
 
 const drawerWidth = 240;
 const navItems = ['Home', 'Iniciar sesion', 'Registrarse'];
 
 function NavbarConUser(props) {
+
+  const navigate = useNavigate();
+
+
+
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -28,6 +39,23 @@ function NavbarConUser(props) {
     setMobileOpen((prevState) => !prevState);
   };
 
+
+
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+
+  function cerrarSesion(){
+    localStorage.removeItem("correo");
+    // window.location.replace("/Login");
+    navigate("/")
+  }
 
 
   const drawer = (
@@ -54,7 +82,7 @@ function NavbarConUser(props) {
 
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <AppBar sx={{backgroundColor:'white'}} component="nav">
+      <AppBar component="nav" position="fixed" sx={{ backgroundColor:'white', zIndex: (theme) => theme.zIndex.drawer + 1 }}>
         <Toolbar>
 
           <IconButton
@@ -78,18 +106,44 @@ function NavbarConUser(props) {
           <Box sx={{width:500,display: { xs: 'none', sm: 'block' } }}>
           <ul className="lista" >
             <li className="nav-item">
-                <NavLink  activeStyle={{fontWeight:"bold",color:"#0E9AB1"}} style={{marginRight:"0px",color:"black", textDecoration: 'none'}} to="/Home">HOME</NavLink>
+                <NavLink  style={{marginRight:"0px",color:"black", textDecoration: 'none'}} to="/Home">HOME</NavLink>
             </li>
             <li className="nav-item">
-                <NavLink  activeStyle={{fontWeight:"bold",color:"#0E9AB1"}} style={{marginLeft:"45px",color:"black", textDecoration: 'none'}} to="/">DIRECTORIO</NavLink>
+                <NavLink   style={{marginLeft:"45px",color:"black", textDecoration: 'none'}} to="/Directorio">DIRECTORIO</NavLink>
             </li>
             <li className="nav-item">
-                <NavLink  activeStyle={{fontWeight:"bold",color:"#0E9AB1"}} style={{marginLeft:"45px",color:"black", textDecoration: 'none'}} to="/H">AGENDA</NavLink>
+                <NavLink  style={{marginLeft:"45px",color:"black", textDecoration: 'none'}} to="/Agenda">AGENDA</NavLink>
+            </li>
+            <li className="nav-item">
+
+            <Button
+              style={{marginLeft:"25px",color:"black", textDecoration: 'none'}}
+              id="fade-button"
+              aria-controls={open ? 'fade-menu' : undefined}
+              aria-haspopup="true"
+              aria-expanded={open ? 'true' : undefined}
+              onClick={handleClick}
+            >
+
+            <PermIdentityIcon/>
+            </Button>
+            <Menu
+              id="fade-menu"
+              MenuListProps={{
+                'aria-labelledby': 'fade-button',
+              }}
+              anchorEl={anchorEl}
+              open={open}
+              onClose={handleClose}
+              TransitionComponent={Fade}
+            >
+              <MenuItem onClick={handleClose}>Perfil</MenuItem>
+              {/* <MenuItem onClick={handleClose}>My account</MenuItem> */}
+              <MenuItem onClick={cerrarSesion}>Cerrar sesion</MenuItem>
+            </Menu>
             </li>
           </ul>
-
           </Box>
-
 
         </Toolbar>
       </AppBar>

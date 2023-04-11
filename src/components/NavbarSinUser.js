@@ -14,8 +14,9 @@ import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-
 import {NavLink} from "react-router-dom";
+
+
 
 const drawerWidth = 240;
 const navItems = ['Home', 'Iniciar sesion', 'Registrarse'];
@@ -78,13 +79,13 @@ function NavbarSinUser(props) {
           <Box sx={{width:500,display: { xs: 'none', sm: 'block' } }}>
           <ul className="lista" >
             <li className="nav-item">
-                <NavLink  activeStyle={{fontWeight:"bold",color:"#0E9AB1"}} style={{marginRight:"0px",color:"black", textDecoration: 'none'}} to="/Home">HOME</NavLink>
+                <NavLink  style={{marginRight:"0px",color:"black", textDecoration: 'none'}} to="/">HOME</NavLink>
             </li>
             <li className="nav-item">
-                <NavLink  activeStyle={{fontWeight:"bold",color:"#0E9AB1"}} style={{marginLeft:"45px",color:"black", textDecoration: 'none'}} to="/">INICIO SESION</NavLink>
+                <NavLink  style={{marginLeft:"45px",color:"black", textDecoration: 'none'}} to="/Login">INICIO SESION</NavLink>
             </li>
             <li className="nav-item">
-                <NavLink  activeStyle={{fontWeight:"bold",color:"#0E9AB1"}} style={{marginLeft:"45px",color:"black", textDecoration: 'none'}} to="/H">RESGISTRARSE</NavLink>
+                <NavLink  style={{marginLeft:"45px",color:"black", textDecoration: 'none'}} to="/Registro">RESGISTRARSE</NavLink>
             </li>
           </ul>
 

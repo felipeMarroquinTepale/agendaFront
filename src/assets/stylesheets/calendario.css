@@ -1,0 +1,18 @@
+:root {
+
+  --fc-button-text-color: #0e0d0d;
+  --fc-button-bg-color: #fcfcfc;
+  --fc-button-border-color: #d3d3d3;
+  --fc-button-hover-bg-color: #acacac;
+  --fc-button-hover-border-color: #ffffff;
+  --fc-button-active-bg-color: #acacac;
+  --fc-button-active-border-color: #fafdff;
+}
+
+
+
+/* .fc fc-media-screen fc-direction-ltr fc-theme-standard{
+
+} */
+
+
